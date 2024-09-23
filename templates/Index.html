@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <h2>Tabla de personas</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Ciudad</th>
+            <th>Salario</th>
+        </tr>
+        {% for persona in personas %}
+        <tr>
+            <td>{{ persona[0] }}</td>
+            <td>{{ persona[1] }}</td>
+            <td>{{ persona[2] }}</td>
+            <td>{{ persona[3] }}</td>
+            <td>{{ persona[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Gráfico de barras</h2>
+    <img src="data:image/png;base64,{{ fig1 | base64_encode }}">
+    <h2>Gráfico circular</h2>
+    <div id="grafico_circular"></div>
+    <script>
+        Plotly.newPlot('grafico_circular', {{ fig2 | tojson }});
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla y Gráficos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .table-container {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+        
+        table thead tr {
+            background-color: #2c3e50;
+            color: white;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        table th, table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+        }
+        
+        table tbody tr {
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        
+        table tbody tr:hover {
+            background-color: #f1c40f;
+            color: white;
+        }
+        
+        .charts {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .chart {
+            width: 48%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            margin-top: 30px;
+        }
+        
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Visualización de Datos</h1>
+            <p class="subtitle">Una tabla informativa y gráficos interactivos</p>
+        </header>
+
+        <section class="content">
+            <div class="table-container">
+                <h2>Tabla de Datos</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Edad</th>
+                            <th>Ciudad</th>
+                            <th>Salario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for persona in personas %}
+                        <tr>
+                            <td>{{ persona[0] }}</td>
+                            <td>{{ persona[1] }}</td>
+                            <td>{{ persona[2] }}</td>
+                            <td>{{ persona[3] }}</td>
+                            <td>{{ persona[4] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="charts">
+                <div class="chart" id="chart1">
+                    <h2>Gráfico 1</h2>
+                    <img src="data:image/png;base64,{{imagen_barra}}">
+                </div>
+
+                <div class="chart" id="chart2">
+                    <h2>Gráfico 2</h2>
+                    <img src="data:image/png;base64,{{imagen_circular}}">
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Presentado por <strong>CHRISTIAN RUIZ</strong> - 2024</p>
+        </footer>
+    </div>
+
+    
+</body>
+</html>
