@@ -20,11 +20,11 @@ def index():
     personas = db.get_personas()
 
     # Generar gráficos
-    gragico_barra = logic.generar_grafico_barras(personas)
-    imagen_barra = logic.convertir_figura_a_base64(gragico_barra)
+    grafico_barra = logic.generar_grafico_barras(personas)
+    imagen_barra = logic.convertir_figura_a_base64(grafico_barra)
 
-    gragico_circular = logic.generar_grafico_circular(personas)
-    imagen_circular = logic.convertir_figura_a_base64(gragico_circular)
+    grafico_circular = logic.generar_grafico_circular(personas)
+    imagen_circular = logic.convertir_figura_a_base64(grafico_circular)
 
     # Cerrar la conexión a la base de datos
     db.close()
